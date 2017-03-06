@@ -15,7 +15,7 @@ This document describes the interaction between the Patient Merging Service and 
 The web service calls and data payloads are detailed below, as well as examples for resolving or aborting these merge operations. A later section documents convenience features for sharing a merge session.
 
 ### Assumptions
-This document assumes FHIR Specification DSTU2, which is the current officially released version at the time of this writing.
+This document assumes FHIR Specification DSTU3, which is the current officially released version at the time of this writing.
 
 ### Technical Approach
 The Patient Merging Service is invoked by a client providing two FHIR URLs for Patient resources, corresponding to patient data assumed to be similar enough to warrant a desire to merge into a single resource. This invocation can be referred to as a "merge session" for the remainder of this document.
@@ -43,7 +43,7 @@ The ptmerge service is exposed as a RESTful API. All communication with the ptme
 
 #### `POST /merge`
 
-Initiates a new merge session. Fully qualified URLs to two FHIR bundles must be provided as query parameters:
+Initiates a new merge session, when, if successful, returns a merged bundle. Fully qualified URLs to two FHIR bundles must be provided as query parameters:
 
 * `source1` - The fully qualified URL referencing source bundle 1.
 * `source2` - The fully qualified URL referencing source bundle 2.
