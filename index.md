@@ -1,8 +1,8 @@
-##PCOR Patient Merging Service
+##PTMerge Service
 
-version 0.1
+version 1.0
 
-6 March 2017
+7 March 2017
 
 The MITRE Corporation
 
