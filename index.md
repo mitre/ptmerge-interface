@@ -1,4 +1,4 @@
-## PTMerge Service
+## PTMerge Interface
 
 version 1.0
 
