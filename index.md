@@ -1,6 +1,10 @@
-## PTMerge Interface
+---
+title: Patient Merge Interface
+---
 
-version 1.0
+## Patient Merge Interface
+
+Version 1.0
 
 7 March 2017
 
@@ -62,7 +66,7 @@ GET [base]/Patient?_id=:id&_include=<paths_to_include>&_revinclude=<paths_to_inc
 
 Where the paths to `_include` and `_revinclude` for a given resource are described in the FHIR server's [CapabilityStatement](https://github.com/synthetichealth/gofhir/blob/stu3_jan2017/conformance/capability_statement.json). In practice, `$everything` is actually the union of `_include=*&_revinclude=*`
 
-During the merge the two source bundles **will not, and should not be modified in any way**. 
+During the merge the two source bundles **will not, and should not be modified in any way**.
 
 #### Request
 
@@ -106,7 +110,7 @@ If a merge succeeds immediately, ptmerge responds with the complete, merged bund
 }
 ```
 
-##### `201 Created`: Merge With Conflicts 
+##### `201 Created`: Merge With Conflicts
 
 If a merge has conflicts, ptmerge responds with a bundle of one or more OperationOutcome resources. Each OperationOutcome describes a single merge conflict. A new **merge session** is started and the `merge_id` is returned in the `Location` header. A new "target" bundle is created on the host FHIR server and is populated with merged resources as the merge session progresses. The OperationOutcomes in the response are also created on the host FHIR server.
 
@@ -421,6 +425,3 @@ GET /merge/58939a3188a94d1a28634257/resolved
 | `200` | **The request succeeded**. The response body contains a bundle of OperationOutcomes detailing the merge session's resolved merge conflicts. If no merge conflicts were resolved yet, this may be an empty bundle. |
 | `404` | **Not found**. The specified merge session does not exist. |
 | `500` | **An unexpected error occurred**. That's all we know. |
-
-
-
